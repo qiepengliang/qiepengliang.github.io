@@ -1,53 +1,1150 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Qiepengliang.GitHub.io by qiepengliang</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Qiepengliang.GitHub.io</h1>
-      <h2 class="project-tagline">my personal website</h2>
-    </section>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>郄朋亮的个人网站</title>
+    <link rel="shortcut icon" href="ico/ooopic_1469190185.ico" type="images/x-icon">
+    <link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        body,h3,h6,h4,ul,li,section,article,aside{padding: 0;margin: 0;}
+        .swiper-container{ width: 100vw;height: 100vh; }
+        /*公共的动画执行动作*/
+        .active{
+            animation: jianbian 2s linear 0s 1 forwards;
+        }
+        /*第一页的渐变颜色--父->子 这里注意渐变有兼容性 默认给一个背景色目的是兼容不支持渐变的浏览器*/
+        #page1{width: 100vw;height: 100vh;
+        background: rgb(73,96,175);
+        background: -webkit-linear-gradient(-45deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 28%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+        background: -moz-linear-gradient(-45deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 28%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+        background: -o-linear-gradient(-45deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 28%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+        background: -ms-linear-gradient(-45deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 28%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+        /*默认给一个线性的渐变*/
+        background: linear-gradient(-45deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 28%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+        }
+        .page_first{
+            width: 100%;height: 100%;
+            background: -webkit-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -moz-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -o-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -ms-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            opacity: 0;
+            /*animation: jianbian 2s linear 0s 1 forwards;*/
+        }
+        /*第二页的渐变颜色--父->子*/
+            #page2{width: 100vw;height: 100vh;
+            background: -webkit-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -moz-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -o-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -ms-linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: linear-gradient(-45deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            }
+        .page_second{
+            width: 100%;height: 100%;
+            background: -webkit-linear-gradient(135deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: -moz-linear-gradient(135deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: -o-linear-gradient(135deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: -ms-linear-gradient(135deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: linear-gradient(135deg, rgba(0,149,148,1) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            opacity: 0;
+            /*animation: jianbian 2s linear 2s 1 forwards;*/
+        }
+        /*第三页的渐变颜色--父->子*/
+        #page3{width: 100vw;height: 100vh;
+            background: -webkit-linear-gradient(135deg, rgb(0, 127, 126) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: -moz-linear-gradient(135deg, rgb(0, 127, 126) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: -o-linear-gradient(135deg, rgb(0, 127, 126) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: -ms-linear-gradient(135deg, rgb(0, 127, 126) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+            background: linear-gradient(135deg, rgb(0, 127, 126) 0%,rgba(5,208,190,1) 40%,rgba(5,208,190,1) 44%,rgba(0,127,161,1) 84%);
+        }
+        .page_three{
+            width: 100%;height: 100%;
+            background: -webkit-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+            background: -moz-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+            background: -o-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+            background: -ms-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+            background: linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+            opacity: 0;
+            /*animation: jianbian 2s linear 5s 1 forwards;*/
+            }
+        /*第四页的渐变颜色--父->子*/
+        #page4{width: 100vw;height: 100vh;
+        background: -webkit-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+        background: -moz-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+        background: linear-gradient(-45deg, rgba(73,96,175,1) 0%,rgba(155,130,181,1) 38%,rgba(91,142,202,1) 72%,rgba(64,87,164,1) 100%);
+        }
+        .page_four{
+            width: 100%;height: 100%;
+            background:-webkit-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+            background:-moz-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+            background:-o-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+            background:-ms-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+            background:linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+            opacity: 0;
+            /*animation: jianbian 2s linear 7s 1 forwards;*/
+        }
+        /*第五页的渐变颜色--父->子*/
+        #page5{width: 100vw;height: 100vh;
+        background: -webkit-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+        background: -moz-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+        background: -o-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+        background: -ms-linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+        background: linear-gradient(to bottom, rgba(0,76,149,1) 14%,rgba(58,161,194,1) 54%,rgba(112,213,202,1) 81%,rgba(148,217,171,1) 100%);
+        }
+        .page_five{
+            width: 100%;height: 100%;
+            background: -webkit-linear-gradient(135deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -moz-linear-gradient(135deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -ms-linear-gradient(135deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: -o-linear-gradient(135deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            background: linear-gradient(135deg, rgba(18,118,185,1) 0%,rgba(48,185,214,1) 45%,rgba(65,108,185,1) 87%,rgba(65,108,185,1) 98%);
+            opacity: 0;
+            /*animation: jianbian 2s linear 7s 1 forwards;*/
+        }
+        /*定义动画--用父元素与子元素动画控制*/
+        @-webkit-keyframes jianbian{
+            0%{
+                opacity: 0
+            }
+            100%{
+                opacity: 1
+            }
+        }
+        /*以下是内容的样式--以上是整体的大框*/
+        /*--1--nav*/
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        #nav_bg{
+            position: absolute;
+            left: 0;top:0;
+            background: #000;
+            opacity: .2;
+            width: 100%;
+            height: 5vw;
+            z-index: 999;
+        }
+        ul,li{list-style: none;padding: 0;margin: 0}
+        h1{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            position: absolute;
+            left: 0;top:0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav ul li:hover span{
+            animation: navbar 0.2s linear 0s 1 forwards;
+        }
+        @keyframes navbar {
+            from{
+                transform: translateY(-100%);
+            }
+            to{
+                transform: translateY(0%);
+            }
+        }
+        @media all and (min-width: 300px){
+            nav h1{display: none;}
+            nav ul{
+                width: 90%;
+                height: 5vw;
+                float: right;
+                display: flex;
+                justify-content: space-around;
+            }
+            nav ul li{
+                width: 20%;
+                height: 5vw;
+                color: #fff;
+                line-height: 5vw;
+                text-align: center;
+                cursor: pointer;
+                opacity: 0.9;
+                font-family: "microsoft yahei","微软雅黑";
+                transition: all 3s;
+                position: relative;
+                overflow: hidden;
+                font-size: .9vw;
+            }
+            nav  li span{
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 100%;;
+                height:100%;
+                text-align:center;
+                background: #00dfb9;
+                color: #fff;
+                transform: translateY(-100%);
+            }
+        }
+        @media all and (min-width:720px){
+            nav h1{
+                display: block;
+                padding: 0;
+                margin: 0;
+                float: left;
+                width: 15%;
+                height: 5vw;
+                line-height: 6vw;
+                text-align: center;
+                color: #fff;
+                opacity: .9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+            }
+            nav h1 img{
+                transform: scale(.8);
+                width: 1.6vw;
+                height: 1.6vw;
+                position: relative;
+                top: .08vw;
+            }
+            nav h1 span{
+                margin-left: 0.2vw;
+                font-size: 2vw;
+                color: #00dfb9;
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+            }
+            nav ul{
+                width: 60%;
+                height: 5vw;
+                float: right;
+                display: flex;
+                justify-content: space-around;
+            }
+            nav ul li{
+                width: 20%;
+                height: 5vw;
+                color: #fff;
+                line-height: 5vw;
+                text-align: center;
+                cursor: pointer;
+                opacity: 0.9;
+                font-family: "microsoft yahei","微软雅黑";
+                transition: all 3s;
+                position: relative;
+                overflow: hidden;
+                font-size: 1.2vw;
+            }
+            nav  li span{
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 100%;;
+                height:100%;
+                text-align:center;
+                background: #00dfb9;
+                color: #fff;
+                transform: translateY(-100%);
+            }
+        }
+        #mouseTip{
+            position: absolute;
+            bottom: 1vh;
+            z-index: 999;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            animation: mouseTip 1.5s ease 0s infinite alternate;
+        }
+        @keyframes mouseTip {
+            from{
+                transform: translateY(-1.2vw);
+            }
+            to{
+                transform: translateY(0vw);
+            }
+        }
+        .color{
+            color:#00dfb9;
+        }
+        section .page_first{
+            display: flex;
+            justify-content: space-between;
+        }
+        .page_first article{
+            width: 50%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .page_first article h3{
+            font-size: 1.5vw;
+            color: #eee;
+            font-family: "microsoft yahei", "微软雅黑";
+            line-height: 4vw;
+        }
+        .page_first article h1{
+            font-size: 4vw;
+            border-bottom: 1px dashed #00dfb9;
+            color: #00dfb9;
+            /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+            font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
+        }
+        .page_first article h4{
+            font-size: 1.2vw;
+            color: #eee;
+            line-height: 2.5vw;
+        }
+        .page_first aside{
+            width: 60%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .page_first aside img{
+            width: 20vw;
+            height: 20vw;
+            border-radius: 50%;
+            transform-origin:center  center ;
+            transition: all 1s ;
+        }
+        .page_first aside img:hover{
+            transform: rotate(360deg);
+        }
+        .page_first aside .con{
+            width: 100%;
+            text-align: center;
+            font-size: 1.4vw;
+            color: #e7e4ff;
+            font-family: "microsoft yahei", "微软雅黑";
+            position: relative;
+            top: 3vh;
+            left: 1.6vw;
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+        }
+        .page_first  .con h3,.page_first  .con h1{
+            font-weight: 400;
+        }
+        .page_first  .con strong{
+            color: #00dfb9;
+        }
+    /*第三页*/
+        @media screen and (min-width: 910px){
+            #content_thr{
+                width: 100%;
+                height: 100%;
+                padding:8%;
+                box-sizing: border-box;
+            }
+            #content_thr h3{
+                width: 100%;
+                text-align: center;
+                color: #e1e1e1!important;
+                font-size: 1.3vw;
+            }
+            #content_thr ul{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                margin-top: 2%;
+                padding: 5px 0;
+                position: relative;
+                background: rgba(0,0,0,0.2);
+                border-radius: 10px;
+            }
+            #content_thr ul li{
+                width: 18%;
+                text-align: center;
+                padding: 3% 0;
+                color: #eee;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 1.1vw;
+                color:#e1e1e1!important;
+            }
+            #content_thr ul li:hover{
+                color: #00AEDF!important;
+            }
+        }
+        @media screen and (min-width: 500px){
+            #content_thr{
+                width: 100%;
+                height: 100%;
+                padding:8%;
+                box-sizing: border-box;
+            }
+            #content_thr h3{
+                width: 100%;
+                text-align: center;
+                color: #eee;
+                font-size: 1.3vw;
+            }
+            #content_thr ul{
+                width: 100%;
+                margin-top: 2%;
+            }
+            #content_thr ul li{
+                width: 33%;
+                float: left;
+                text-align: center;
+                padding: 1% 0;
+                color: #eee;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 1.1vw;
+            }
+        }
+        @media screen and (max-width: 500px ){
+            #content_thr{
+                width: 100%;
+                height: 100%;
+                padding:8%;
+                box-sizing: border-box;
+            }
+            #content_thr h3{
+                width: 100%;
+                text-align: center;
+                color: #eee;
+                font-size: 1.3vw;
+            }
+            #content_thr ul{
+                width: 100%;
+                margin-top: 2%;
+                border:1px solid #00dfb9;
+            }
+            #content_thr ul li{
+                width: 50%;
+                float: left;
+                text-align: center;
+                padding: 1% 0;
+                color: #eee;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 1.1vw;
+            }
+        }
+        .tech_title{
+            margin-top:4%;
+        }
+        .technology{
+            height: 60%;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .technology .skill{
+            width: 25%;
+            background: rgba(0,0,0,.3);
+            height: 90%;
+            margin-left: 3%;
+            border-radius: 8px;
+            color: #00dfb9;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            position: relative;
+        }
+        .technology .skill span{
+            content: "";
+            display: block;
+            width: 0;
+            height:0;
+            position: absolute;
+            left: 0;top: 0;
+            border-top: 1px solid #00dfb9;
+            border-left: 1px solid #00dfb9;
+            border-radius: 8px;
+        }
+        .technology .skill em{
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 0;bottom: 0;
+            border-radius: 8px;
+            border-right: 1px solid #00dfb9;
+            border-bottom: 1px solid #00dfb9;
+        }
+        @keyframes bordertwo {
+            0%{
+                width: 0;
+                height: 0;
+            }
+            100%{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        @keyframes bordertwo2 {
+            0%{
+                width: 100%;
+                height: 100%;
+            }
+            100%{
+                width: 0;
+                height: 0;
+            }
+        }
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+        .technology .skill:first-child{
+            margin-left: 0;
+        }
+        .technology .skill h4{
+            text-align: center;
+            padding: 6px 0 3px 0;
+            color: #00AEDF;
+        }
+        .technology .skill li{
+            padding: 5px 0;
+            display: flex;
+            justify-content: flex-start;
+            color: #e1e1e1;
+        }
+        /*透明度消失*/
+        .opa_0{
+            opacity: 0;
+        }
+        .opa_1{
+            opacity: 1;
+        }
+        /*第二页*/
+        .page_second{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .page2_cont{
+            width: 50%;
+            height: 80%;
+            position: relative;
+        }
+        .page2_cont span{
+            content: "";
+            display: block;
+            height: 85%;
+            width: 1%;
+            position: absolute;
+            left: 0;
+            bottom: 5%;
+            right: 0;
+            margin: auto;
+            border-right: 1px solid #f5f5f5;
+        }
+        .experiences{
+            width: 80%;
+            height: 85%;
+            position: absolute;
+            left: 0;right: 0;
+            bottom: 5%;
+            margin: auto;
+            color: #f5f5f5;
+        }
+        .experiences p{
+            width: 100%;
+            position: absolute;
+            bottom: -15%;
+            left: 0;right: 0;
+            margin: auto;
+            text-align: center;
+            font-size:1.3vw;
+        }
+        .experiences ul{
+            width: 100%;
+            height: 15%;
+            padding: 5% 0;
+            position: absolute;
+            left: 0;right: 0;
+            margin: auto;
+           /* display: flex;
+            justify-content: space-between;*/
+        }
+        .experiences ul li{
+            line-height: 5vw;
+            width: 50%;
+            opacity: 0;
+            font-size:1.2vw;
+        }
+        .experiences ul li:hover{
+            color:#fff ;
+        }
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+        .experiences ul li:nth-of-type(2){
+            transform: translateY(-20vw);
+            width: 45%;
+            float: right;
+            text-align: center;
+        }
+        .experiences ul:nth-of-type(1){
+            left: 0;
+            bottom: 0;
+        }
+        .experiences ul:nth-of-type(2){
+            left: 0;
+            bottom: 30%;
+        }
+        .experiences ul:nth-of-type(3){
+            left: 0;
+            bottom: 60%;
+        }
+        @keyframes liRunL {
+            from{
+                opacity: 0;
+                transform: translateX(-200px);
+                transform: translateY(90%);
+            }
+            to{
+                opacity: 1;
+                transform: translateX(0);
+                transform: translateY(0);
+            }
+        }
+        @keyframes liRunR {
+            from{
+                opacity: 0;
+                transform: translateX(200px);
+            }
+            to{
+                opacity: 1;
+                transform: translateX(0);
+                transform: translateY(-10vw);
+            }
+        }
+        .ani_li1{
+            animation:liRunL 1s ease 1s 1 forwards;
+        }
+        .ani_li3{
+            animation:liRunL 1s ease 3s 1 forwards;
+        }
+        .ani_li5{
+            animation:liRunL 1s ease 5s 1 forwards;
+        }
+        .ani_li2{
+            animation:liRunR 1s ease 2s 1 forwards;
+        }
+        .ani_li4{
+            animation:liRunR 1s ease 4s 1 forwards;
+        }
+        .ani_li6{
+            animation:liRunR 1s ease 6s 1 forwards;
+        }
+/*---------------------------第二个swiper*/
+        .page_four{
+            padding-top: 10vw;
+        }
+        .swiper-container2{
+            width: 90%;
+            height: 40%;
+        }
+        .swiper-container2 .swiper-slide{
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-container2 .swiper-slide a{
+            display: block;
+            width: 65%;
+            height:65%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.4);
+        }
+        .swiper-container2  a img{
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+        }
+        .demo{
+            height: 30%;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+        .demo h4{
+            color: #f5f5f5;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .scanmore{
+            padding: 1vw 3vw;
+            border: 0;
+            background: #a0f4b3;
+            border-radius: 8px;
+            color: #2529ff;
+            box-shadow: 0 0 10px #b0fff1;
+            text-shadow: 0 0 5px #0ff;
+            margin-top:2vw;
+            font-size: 1.2vw;
+        }
+        .scanmore:hover{
+            color: #fff;
+            box-shadow: 0 0 10px #41a8c3;
+            cursor: pointer;
+        }
+        /*第五页*/
+        .page_five{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .page_5-cont{
+            width: 80%;
+            height: 60%;
 
-<p>You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+        }
+        .page_5-cont h2{
+            width: 100%;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: center;
+            color: #eee;
+        }
+        .page_5-cont ul{
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .page_5-cont ul li{
+            width: 18%;
+            height:80%;
+            background: rgba(0,0,0,.3);
+            transform: skew(-15deg);
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+        }
+        .page_5-cont li h3{
+            color: #00dfb9;
+        }
+        .page_5-cont li p{
+            color: #f5f5f5;
+        }
+        .page_5-cont ul li:nth-of-type(2){
+            transform: skew(15deg);
+        }
+        .page_5-cont ul li:nth-of-type(4){
+            transform: skew(15deg);
+        }
+        .demos:hover{
+            color: #008CFF ;
+        }
+        .workplace{
+          position: relative;
+        }
+        .workplace span{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #003D77;
+            position: absolute;
+            left: 0;top: 0;
+            opacity: 0;
+        }
+        .workplace span ul{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          color: #fff;
+          font-size: 12px;
+          padding: 15px;
+        }
+        .workplace:hover span{
+          opacity: 1;
+          transform: scale(1.6);
+        }
+    </style>
+</head>
+<body>
+    <div id="nav_bg"></div>
+    <nav>
+        <h1 id="logo" class="animated rollIn"><img src="img/logo1.png" alt="logo" title="记住你的人生是用你自己的双手打造的!"><span>Adley</span></h1>
+        <ul class="animated bounceInDown">
+            <li class="color">Home<span >主 页</span></li>
+            <li class="mine-exper">Experience<span>项目经历</span></li>
+            <li>MySkills<span>我的技能</span></li>
+            <li>Portfolios<span>作品集</span></li>
+            <li>ContactMe<span>联系我</span></li>
+        </ul>
+    </nav>
+<div class="swiper-container swiper-container1">
+    <div class="swiper-wrapper">
+        <section id="page1" class="swiper-slide">
+            <div class="page_first active jb">
+                <h6 id="mouseTip"><img src="img/mousetip.png" alt="用鼠标可以向下滚动"></h6>
+                <article class="animated fadeInLeftBig">
+                    <h3 class="text">技术派，论研发</h3>
+                    <h1 class="text ">DEVELOPER</h1>
+                    <h4 class="text">我说，业界没有最好的技术，只有最棒的技术开发者</h4>
+                    <h3 class="text">我是一名前端攻城狮</h3>
+                </article>
+                <aside>
+                    <div class="bg_adley animated slideInRight">
+                        <img src="img/my1.jpg" alt="">
+                    </div>
+                    <div class="con animated bounceInUp">
+                        <h1 class="text">HI！</h1>
+                        <h3 class="text">我叫<strong>郄朋亮</strong></h3>
+                        <h3 class="text">我正在寻找一份<strong>web前端工程师</strong>的职位</h3>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section id="page2" class="swiper-slide">
+            <div class="page_second jb">
+                <div class="page2_cont">
+                    <span class="opa_0"></span>
+                    <div class="experiences">
+                        <p class="opa_0">2013年6月30日正式进入前端开发。。。</p>
+                        <ul >
+                            <li class="li_01 ">2013年06月协同开发麦包包网站</li>
+                            <li class="li_02">2014年07月开发钓鱼吧WebApp</li>
+                        </ul>
+                        <ul >
+                            <li class="li_03">2014年12月微信嵌入开发社区人</li>
+                            <li class="li_04">2015年05月医药馆WebApp开发</li>
+                        </ul>
+                        <ul >
+                            <li class="li_05">2015年10月开发华夏e当pc端</li>
+                            <li class="li_06">2015年11月淘礼商城Hybrid开发</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="page3" class="swiper-slide">
+            <div class="page_three jb">
+                <div id="content_thr">
+                    <h3 class=" opa_0">What can I do/我能做</h3>
+                    <ul class="cando opa_0" >
+                        <li>PC端网站的开发</li>
+                        <li style="color: #00AEDF!important;">移动端网站开发</li>
+                        <li>webApp/混合App开发</li>
+                        <li>微信/微场景开发</li>
+                        <li>响应式布局/跨终端设备</li>
+                        <li>基于HTML5/CSS3的开发</li>
+                    </ul>
+                    <h3 class="tech_title opa_0">Technologies/我的技能</h3>
+                    <div class="technology">
+                        <div class="language skill opa_0">
+                            <h4>Languages/语言类</h4>
+                            <ol>
+                                <li>HTML+CSS</li>
+                                <li>JavaScript</li>
+                                <li>Ajax/JSONP</li>
+                                <li>HTML5+CSS3</li>
+                                <li>Less/Sass</li>
+                                <li>MySQL+Php</li>
+                                <span></span>
+                                <em></em>
+                            </ol>
+                        </div>
+                        <div class="leiku skill opa_0">
+                            <h4>Classlibs/类库、插件类</h4>
+                            <ol>
+                                <li>jQuery</li>
+                                <li>Zepto</li>
+                                <li>Layer.js</li>
+                                <li>Hcharts.js</li>
+                                <li>Touch.js</li>
+                                <span></span>
+                                <em></em>
+                            </ol>
+                        </div>
+                        <div class="kuangjia skill opa_0">
+                            <h4>Frameworks/框架类</h4>
+                            <ol>
+                                <li>Bootstrap</li>
+                                <li>iScroll+Swiper+Animate.css</li>
+                                <li>Hbuilder+Mui+H5++Hybrid</li>
+                                <li>Yo+Avalon</li>
+                                <li>AngularJS+Ionic</li>
+                                <li>Vue 、React 、Cordova</li>
+                                <span></span>
+                                <em></em>
+                            </ol>
+                        </div>
+                        <div class="gongju skill opa_0">
+                            <h4>Tools/工具类</h4>
+                            <ol>
+                                <li>gulp+webpack、fekit</li>
+                                <li>Git 、Svn </li>
+                                <li>Hbuilder 、WebStorm 、Atom</li>
+                                <li>CodePen</li>
+                                <li>Ps6 、Koala</li>
+                                <span></span>
+                                <em></em>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="page4" class="swiper-slide">
+            <div class="page_four jb">
+                <div class="swiper-container swiper-container2 opa_0">
+                    <div class="swiper-wrapper ">
+                        <div class="swiper-slide"><a class="workplace" href="###" style="background: #c4214c"><img src="img/maibaobao.jpg" alt="">
+                            <span>
+                              <ul style="font-family:"微软雅黑"">
+                                    <h3>麦包包（PC端）</h3>
+                                    <br>
+                                    <li style="color:#00DEB8;padding:2px 0;">麦包包是专门做卖包的购物平台</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">参与了第五次大迭代更新</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">采用优雅降级的架构方式开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">负责登录、注册、详情页和部分的主页的开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">动画的编写和Ajax请求后端动态渲染数据</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">协助团队，修复bug，应用svn协同开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">HTML5+CSS3+JavaScript+jQuery</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">Ajax+JSON+localStorage+gulp</li>
+                              </ul>
+                            </span>
+                          </a>
+                        </div>
+                        <div class="swiper-slide"><a class="workplace" href="###" style="background: #f9f9f9"><img src="img/diaoyuba.png" alt="">
+                            <span>
+                              <ul style="font-family:"微软雅黑"">
+                                    <h3>钓鱼吧（WebApp）</h3>
+                                    <br>
+                                    <li style="color:#00DEB8;padding:2px 0;">钓鱼吧是一款扩大钓友圈的APP</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">高保真还原UI设计稿</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">sass开发，利用koala实时编译scss文件</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">采用Zepto、iScroll、Swiper开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">bug修复</li>
+                              </ul>
+                            </span>
+                        </a>
+                      </div>
+                        <div class="swiper-slide"><a class="workplace" href="###" style="background: #F9F9F9"><img src="img/shequren.png" alt="">
+                            <span>
+                              <ul style="font-family:"微软雅黑"">
+                                    <h3>社区人(微信开发)</h3>
+                                    <br>
+                                    <li style="color:#00DEB8;padding:2px 0;">社区人是一款社区内生活服务的微信App项目</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">微信JS-SDK</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">WebApp开发并嵌入到微信当中</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">利用微信JS-SDK开发工具包调取本地设备</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">微信公众号的管理</li>
+                              </ul>
+                            </span>
+                        </a>
+                      </div>
+                        <div class="swiper-slide"><a class="workplace" href="###" style="background: #fff"><img src="img/xitajie.png" alt="">
+                            <span>
+                                <ul style="font-family:"微软雅黑"">
+                                      <h3>西塔街 (Hybrid)</h3>
+                                      <br>
+                                      <li style="color:#00DEB8;padding:2px 0;">西塔街是专门为西塔附近消费做的APP项目</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">与Android、IOS合作开发</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">WebApp开发流程</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">轮播图、登录、注册嵌入Native</li>
+                                </ul>
+                            </span>
+                          </a>
+                        </div>
+                        <div class="swiper-slide"><a class="workplace" href="###" style="background: #F9F9F9"><img src="img/yiyaoguan.png" alt="">
+                              <span>
+                                <ul style="font-family:"微软雅黑"">
+                                      <h3>医药馆(WebApp)</h3>
+                                      <br>
+                                      <li style="color:#00DEB8;padding:2px 0;">医药馆是一款网上购药的APP项目</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">应用Yo框架+Avalon技术实现</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">flex布局，解决1px边框的问题</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">利用iScroll、Swiper实现滑动和动画的效果</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">Avalon循环加载数据</li>
+                                      <li style="color:#00DEB8;padding:2px 0;">使用fekit工程化管理工具</li>
+                                </ul>
+                              </span>
+                          </a>
+                        </div>
+                        <!-- <div class="swiper-slide"><a class="workplace" href="###" style="background: #fff"><img src="img/baicaowei.png" alt="">
+                          <span>
+                              <ul style="font-family:"微软雅黑"">
+                                    <h3>麦包包（PC端）</h3>
+                                    <br>
+                                    <li style="color:#00DEB8;padding:2px 0;">麦包包是专门做卖包的购物平台</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">参与了第五次大迭代更新</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">采用优雅降级的架构方式开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">负责登录、注册、详情页和部分的主页的开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">动画的编写和Ajax请求后端动态渲染数据</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">协助团队，修复bug，应用svn协同开发</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">HTML5+CSS3+JavaScript+jQuery</li>
+                                    <li style="color:#00DEB8;padding:2px 0;">Ajax+JSON+localStorage+gulp</li>
+                              </ul>
+                          </span>
+                        </a>
+                      </div> -->
+                    </div>
+                </div>
+                <div class="demo opa_0">
+                    <div >
+                      <!-- <h4>以上为部分我的demo,更多portfolios请点击</h4> -->
+                        <h4 class="demos"><span style="color:#00DEB8">友情提示：鼠标可以左右拖动</span><br><br><br>以上为部分我的demo,更多portfolios更新中...</h4>
+                        <!-- <button class="scanmore">Scan More</button> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="page5" class="swiper-slide">
+            <div class="page_five jb">
+                <div class="page_5-cont">
+                    <h2 class="opa_0">联系我</h2>
+                    <ul class="opa_0">
+                        <li><h3>电话</h3><p>13522895542</p><p>13261113211</p></li>
+                        <li><h3>邮箱</h3><p>adley_app@126.com</p></li>
+                        <li><h3>微信</h3><p>79573967</p></li>
+                        <li><h3>博客</h3><p><span>CSDN:</span>adley_function</p><p><span>GitHub:</span>AdleyQ</p></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="swiper-pagination "></div>
+</div>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+</body>
+<script src="jquery.js"></script>
+<script src="swiper-3.3.1.jquery.min.js"></script>
+<script>
+    function c(c){
+        console.log(c)
+    }
+    var mySwiper=new Swiper(".swiper-container1",{
+        direction: 'vertical',
+//        autoplay: 2000,
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        mousewheelControl : true,
+//        effect : 'cube',
+//        effect : 'flip',
+//        effect : 'fade',
+//        speed: 500,
 
-      <footer class="site-footer">
+/*        onTransitionEnd: function(swiper){
+            //console.log(mySwiper.activeIndex);
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+        }*/
+        onTransitionEnd:function(swiper){
+//            c(swiper.activeIndex);
+            $("section div").removeClass("active");
+            $("section").eq(swiper.activeIndex).find(".jb").addClass("active");
+            $("nav li").removeClass("color");
+            $("nav li").eq(swiper.activeIndex).addClass("color");
+            if(swiper.activeIndex==0){
 
-    </section>
+            }else{
 
-  
-  </body>
+            }
+            if(swiper.activeIndex==1){
+                setTimeout(function(){
+                    $(".experiences p").addClass("animated  fadeInUp opa_1");
+                    $(" .page2_cont span").addClass("animated fadeInUp opa_1");
+                    $(".experiences .li_01 ").addClass("ani_li1");
+                    $(".experiences .li_02 ").addClass("ani_li2");
+                    $(".experiences .li_03 ").addClass("ani_li3");
+                    $(".experiences .li_04 ").addClass("ani_li4");
+                    $(".experiences .li_05 ").addClass("ani_li5");
+                    $(".experiences .li_06 ").addClass("ani_li6");
+                },500)
+            }else{
+                $(".experiences p").removeClass("animated  fadeInUp opa_1");
+                $(" .page2_cont span").removeClass("animated fadeInUp opa_1");
+                $(".experiences .li_01 ").removeClass("ani_li1");
+                $(".experiences .li_02 ").removeClass("ani_li2");
+                $(".experiences .li_03 ").removeClass("ani_li3");
+                $(".experiences .li_04 ").removeClass("ani_li4");
+                $(".experiences .li_05 ").removeClass("ani_li5");
+                $(".experiences .li_06 ").removeClass("ani_li6");
+            }
+            if(swiper.activeIndex==2){
+                setTimeout(function(){
+                    $("#content_thr h3").addClass("animated flip opa_1");
+                    $("#content_thr ul").addClass("animated fadeInLeft opa_1");
+                    $(".technology .language").addClass("animated   flipInY  opa_1");
+                    $(".technology .leiku").addClass("animated   flipInY  opa_1");
+                    $(".technology .kuangjia").addClass("animated   flipInY  opa_1");
+                    $(".technology .gongju").addClass("animated   flipInY  opa_1");
+                },500)
+            }else{
+                $("#content_thr h3").removeClass("animated flip opa_1");
+                $("#content_thr ul").removeClass("animated fadeInLeft  opa_1");
+                $(".technology .language").removeClass("animated    flipInY opa_1");
+                $(".technology .leiku").removeClass("animated    flipInY opa_1");
+                $(".technology .kuangjia").removeClass("animated    flipInY opa_1");
+                $(".technology .gongju").removeClass("animated    flipInY opa_1");
+            }
+            if(swiper.activeIndex==3){
+                setTimeout(function(){
+                    $(".swiper-container2 ").addClass("animated zoomInDown opa_1");
+                   $(".page_four .demo").addClass("animated rubberBand opa_1");
+                },500)
+            }else{
+                $(".swiper-container2").removeClass("animated zoomInDown opa_1");
+                $(".page_four .demo").removeClass("animated rubberBand opa_1");
+            }
+            if(swiper.activeIndex==4){
+                setTimeout(function(){
+                    $(".page_5-cont h2").addClass("animated bounceInDown opa_1");
+                    $(".page_5-cont ul").addClass("animated bounceInLeft opa_1");
+                },500)
+            }else{
+                $(".page_5-cont h2").removeClass("animated bounceInDown opa_1");
+                $(".page_5-cont ul").removeClass("animated bounceInLeft opa_1");
+            }
+            $("#content_thr h3").hover(function(){
+                $("#content_thr h3").removeClass("animated flip ");
+                $(this).addClass("animated flip");
+            })
+            $(".technology .skill ").hover(function(){
+                $(this).find("span,em").css({
+                    animation:"bordertwo .5s linear 0s 1 forwards"
+                })
+            },function(){
+                $(this).find("span,em").css({
+                    animation:"bordertwo2 .5s linear 0s 1 forwards"
+                })
+            })
+        },
+        onInit:function(){
+            $("nav li").click(function(){
+                mySwiper.slideTo($(this).index(), 1000, true);
+            })
+            $(".text").hover(function(){
+                $(".text").removeClass("animated rubberBand");
+                $(this).addClass("animated rubberBand");
+            })
+            $("#mouseTip").click(function(){
+                mySwiper.slideTo(1, 1000, true);
+            })
+        }
+    })
+//---初始化第二个swiper
+    var myswiper2=new Swiper(".swiper-container2",{
+        autoplay: 3000,
+        effect : 'coverflow',
+        autoplayDisableOnInteraction : false,
+        slidesPerView: 4,
+        centeredSlides: true,
+        loop:true,
+/*        coverflow: {
+            rotate: 30,
+            stretch: 1,
+            depth: 20,
+            modifier: 2,
+            slideShadows : true
+        }*/
+
+    })
+    $('.workplace').hover(function(){
+       myswiper2.stopAutoplay();
+    },function(){
+      myswiper2.startAutoplay();
+    })
+</script>
 </html>
