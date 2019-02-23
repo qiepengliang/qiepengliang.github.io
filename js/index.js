@@ -64,32 +64,37 @@ var mySwiper = new Swiper(".swiper-container1", {
                 $(".technology .gongju").addClass("animated   flipInY  opa_1");
             }, 500)
 
-            var num=0;
+            var num = 0;
             var speed = 0;
-            setInterval(function(){
+            setInterval(function () {
                 $("#content_thr h3").addClass("animated flip opa_1");
                 num++;
-                if(num > 2){
+                if (num > 2) {
                     $("#content_thr h3").removeClass("animated flip");
-                    num=0;
+                    num = 0;
                 }
 
                 // 
                 $("#content_thr ul").css({
-                    'box-shadow':'0px 0px '+speed+'px #00dfb9'
+                    'box-shadow': '0px 0px ' + speed + 'px #00dfb9'
                 });
 
 
-                if(speed >= 30){
+                if (speed >= 30) {
                     speed -= 30;
-                }else if(speed <= 0){
+                } else if (speed <= 0) {
                     speed += 30;
-                }else {
-                    speed += 30; 
+                } else {
+                    speed += 30;
                 }
 
-            },1500);
+            }, 1500);
 
+            var myChart = null;
+            setTimeout(function(){
+                myChart= echarts.init(document.getElementById('main'));
+                myChart.setOption(option, true);
+            },1200)
 
         } else {
             $("#content_thr h3").removeClass("animated flip opa_1");
@@ -121,7 +126,7 @@ var mySwiper = new Swiper(".swiper-container1", {
             $("#content_thr h3").removeClass("animated flip ");
             $(this).addClass("animated flip");
         })
-        
+
         $(".technology .skill ").click(function () {
             $(this).find("span,em").css({
                 animation: "bordertwo .5s linear 0s infinite alternate"
@@ -132,16 +137,16 @@ var mySwiper = new Swiper(".swiper-container1", {
             })
         })
 
-        function setTimeClick(i,x){
-            setTimeout(function(){
+        function setTimeClick(i, x) {
+            setTimeout(function () {
                 $(".technology .skill").eq(i).click();
-            },2000*x); 
+            }, 2000 * x);
         }
 
-        setTimeClick(0,1);
-        setTimeClick(1,2);
-        setTimeClick(2,3);
-        setTimeClick(3,4);
+        setTimeClick(0, 1);
+        setTimeClick(1, 2);
+        setTimeClick(2, 3);
+        setTimeClick(3, 4);
 
     },
     onInit: function () {
@@ -159,18 +164,18 @@ var mySwiper = new Swiper(".swiper-container1", {
         })
 
         // 
-        Array.from($(".text")).forEach(function(item,index){
-            setTimeout(function(){
+        Array.from($(".text")).forEach(function (item, index) {
+            setTimeout(function () {
                 $(".text").removeClass("animated rubberBand");
                 $(item).addClass("animated rubberBand");
-            },1200*index);
+            }, 1200 * index);
         });
 
-        setTimeout(function(){
+        setTimeout(function () {
             $('.page_first aside img').css({
                 transform: 'rotate(360deg)'
             });
-        },3000);
+        }, 3000);
     }
 })
 //---初始化第二个swiper
@@ -195,3 +200,61 @@ $('.workplace').hover(function () {
 }, function () {
     myswiper2.startAutoplay();
 })
+
+
+window.option = {
+    backgroundColor:'rgba(155,130,181,.1)',
+    dataset: {
+        source: [
+            ['score', 'amount', 'product'],
+            [89.3, 76, 'Linus、Shell、Python'],
+            [57.1, 64, 'Docker'],
+            [74.4, 66, 'Nginx'],
+            [50.1, 84, 'Mysql、Mongodb、Redis'],
+            [89.7, 94, 'Express、Koa'],
+            [68.1, 91, 'Node.js'],
+            [19.6, 92, 'Vue'],
+            [10.6, 95, 'JavaScript'],
+            [32.7, 93, 'HTML5、CSS3']
+        ]
+    },
+    grid: {
+        containLabel: true
+    },
+    xAxis: {
+        axisLabel: {        
+            show: true,
+            textStyle: {
+                color: '#EEEEE0',
+            }
+        },
+    },
+    yAxis: {
+        type: 'category',
+        axisLabel: {        
+            show: true,
+            textStyle: {
+                color: '#EEEEE0',
+            }
+        },
+    },
+    series: [{
+        type: 'bar',
+        encode: {
+            x: 'amount',
+            y: 'product'
+        },
+        itemStyle: {
+            normal: {
+                //好，这里就是重头戏了，定义一个list，然后根据所以取得不同的值，这样就实现了，
+                color: function (params) {
+                    // build a color map as your need.
+                    var colorList = [
+                        '#F8F8FF', '#F5F5DC','#F0FFF0','#EEDFCC','#FDF5E6','#D1EEEE','#FFFFF0','#FFFAF0','#FFFFE0'
+                    ];
+                    return colorList[params.dataIndex]
+                }
+            }
+        },
+    }]
+};
